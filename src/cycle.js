@@ -1,6 +1,6 @@
 import xs from 'xstream';
 
-function loadGithubUsers1(sources) {
+function loadGithubUsers(sources) {
   const request$ = sources.ACTION
     .filter(action => action.type === 'LOAD_GITHUB_USER')
     .map(action => ({
@@ -28,4 +28,4 @@ function loadGithubUsers1(sources) {
   };
 }
 
-export default loadGithubUsers1;
+export default loadGithubUsers;

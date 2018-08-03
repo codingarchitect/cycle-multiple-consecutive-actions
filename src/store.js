@@ -5,8 +5,7 @@ import { run } from '@cycle/run';
 import { makeHTTPDriver } from '@cycle/http';
 import { timeDriver } from '@cycle/time';
 
-import cycle1 from './cycle1';
-import cycle2 from './cycle2';
+import cycle from './cycle';
 
 const cycleMiddleware = createCycleMiddleware();
 const { makeActionDriver, makeStateDriver } = cycleMiddleware;
@@ -16,8 +15,8 @@ const store = createStore(combineReducers(
   {},
   applyMiddleware(cycleMiddleware));
 
-function attachCycle(cycle) {
-  return run(combineCycles(cycle, cycle1, cycle2), {
+function attachCycle(anotherCycle) {
+  return run(combineCycles(anotherCycle, cycle), {
     ACTION: makeActionDriver(),
     STATE: makeStateDriver(),
     Time: timeDriver,
